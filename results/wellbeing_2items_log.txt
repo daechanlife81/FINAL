@@ -1,0 +1,57 @@
+This is lavaan 0.6-21
+lavaan is FREE software! Please report any bugs.
+================================================================
+[옵션 1] 4문항: 행복 + 삶의 만족 + 우울(역) + 걱정(역)
+================================================================
+
+--- 4문항 모형 적합도 ---
+  chisq      df  pvalue     gfi     cfi     tli   rmsea    srmr 
+439.562   2.000   0.000   0.868   0.688   0.063   0.406   0.136 
+Number of categories should be increased  in order to count frequencies. 
+경고메시지(들):
+response.frequencies(x, max = max)에서:
+  response.frequency has been deprecated and replaced with responseFrequecy.  Please fix your call
+
+Cronbach's alpha (4문항) = 0.696
+AVE (4문항) = 0.388
+CR (4문항) = 0.701
+
+================================================================
+[옵션 2] 2문항: 행복 + 삶의 만족 (지도교수님 권장)
+================================================================
+경고메시지(들):
+lavaan->lav_model_vcov():  
+   Could not compute standard errors! The information matrix could not be 
+   inverted. This may be a symptom that the model is not identified. 
+
+--- 2문항 모형 적합도 ---
+ chisq     df pvalue    gfi    cfi    tli  rmsea   srmr 
+    NA     -1     NA      1     NA     NA      0      0 
+Number of categories should be increased  in order to count frequencies. 
+경고메시지(들):
+response.frequencies(x, max = max)에서:
+  response.frequency has been deprecated and replaced with responseFrequecy.  Please fix your call
+
+Cronbach's alpha (2문항) = 0.767
+C_01과 C_04 상관계수 = 0.624
+Spearman-Brown 신뢰도 (2문항) = 0.768
+
+================================================================
+[옵션 3] 양적 안녕감 + 음적 안녕감 분리 (2개 잠재변수)
+================================================================
+
+--- 양적/음적 분리 모형 적합도 ---
+ chisq     df pvalue    gfi    cfi    tli  rmsea   srmr 
+ 3.607  1.000  0.058  0.999  0.998  0.989  0.044  0.007 
+
+================================================================
+4. 종합 비교
+================================================================
+
+[4문항] alpha = 0.696, AVE = 0.388, CR = 0.701
+[2문항] alpha = 0.767, Spearman-Brown = 0.768
+
+주의사항:
+  - 2문항 모형은 단독 CFA 식별 불가 (df < 0)
+  - SEM 모형 내 잠재변수로 투입 시 다른 변수와 결합으로 식별 가능
+  - 2문항 잠재변수는 학술적 권장사항이 아님
