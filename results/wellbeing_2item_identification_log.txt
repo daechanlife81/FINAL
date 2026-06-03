@@ -1,0 +1,83 @@
+This is lavaan 0.6-21
+lavaan is FREE software! Please report any bugs.
+
+다음의 패키지를 부착합니다: 'psych'
+
+The following object is masked from 'package:lavaan':
+
+    cor2cov
+
+================================================================
+[1] 단독 CFA 식별 문제 확인 (2문항 잠재변수)
+================================================================
+WARNING: lavaan->lav_model_vcov():  
+   Could not compute standard errors! The information matrix could not be 
+   inverted. This may be a symptom that the model is not identified. 
+
+단독 모형 df = -1
+→ 잠재변수 1개 + 관측변수 2개 = 음수 자유도 (under-identified)
+  모수: 분산2 + 부하량2 + 요인분산1 = 5개 추정 / 정보 3개 (2분산+1공분산)
+
+================================================================
+[2] 요인부하량 동일 제약 모형 (tau-equivalent)
+================================================================
+
+동일 제약 모형 df = 0
+
+표준화 요인부하량 (동일 제약):
+  C_01: lambda = 0.814
+  C_04: lambda = 0.766
+→ 동일 제약으로 자유도 확보, 단독 식별 가능
+
+================================================================
+[3] 전체 측정모형 내 2문항 식별 (비제약 vs 동일제약)
+================================================================
+
+(A) 비제약 모형 (전체 CFA 내 식별):
+  chi2(df)=762.764(167), CFI=0.952, TLI=0.945, RMSEA=0.052, SRMR=0.039
+
+(B) 동일제약 모형 (tau-equivalent):
+  chi2(df)=770.853(168), CFI=0.951, TLI=0.945, RMSEA=0.052, SRMR=0.040
+
+--- 비제약 vs 제약 모형 비교 (Chi-square difference test) ---
+
+Chi-Squared Difference Test
+
+            Df   AIC   BIC  Chisq Chisq diff    RMSEA Df diff Pr(>Chisq)   
+fit_free   167 56831 57054 762.76                                          
+fit_constr 168 56837 57055 770.85      8.089 0.073062       1   0.004453 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+→ 유의하지 않으면(p>.05) 동일 제약이 데이터에 부합 = tau-equivalent 성립
+
+비제약 모형 안녕감 부하량:
+  C_01: lambda = 0.910
+  C_04: lambda = 0.686
+
+================================================================
+[4] 2문항 신뢰도 (Eisinga et al., 2013 권장 지표)
+================================================================
+Number of categories should be increased  in order to count frequencies. 
+경고메시지(들):
+response.frequencies(x, max = max)에서:
+  response.frequency has been deprecated and replaced with responseFrequecy.  Please fix your call
+
+  Pearson 상관 (r)        = 0.624
+  Spearman-Brown 계수     = 0.768
+  Cronbach's alpha        = 0.767
+
+  ※ Eisinga et al.(2013): 2문항 척도는 Spearman-Brown이 가장 적절
+    'The reliability of a two-item scale: Pearson, Cronbach, or Spearman-Brown?'
+    International Journal of Public Health, 58(4), 637-642.
+
+================================================================
+[종합] 2문항 안녕감 식별 안정성
+================================================================
+
+1. 단독 CFA: df=-1 (식별 불가) → 전체 SEM 내 식별 필요
+2. tau-equivalent 제약: 단독 식별 가능 (df>=0)
+3. 전체 모형 내: 비제약/제약 모두 안정적 추정
+4. 신뢰도: SB=0.768 (2문항 권장 지표)
+
+→ 박사논문 기술: 전체 SEM 내 식별 + Spearman-Brown 신뢰도 보고
